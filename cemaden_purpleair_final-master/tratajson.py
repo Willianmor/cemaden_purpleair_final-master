@@ -84,6 +84,7 @@ def trataJson(*args):
             result = conn.execute("INSERT INTO cemaden_purpleair (idsensor,chave,Label,lat,lon, PM2_5Value,p_0_3_um,p_0_5_um,p_1_0_um,p_2_5_um,p_5_0_um,p_10_0_um,pm1_0_cf_1,pm2_5_cf_1,pm10_0_cf_1,pm1_0_atm,pm2_5_atm,pm10_0_atm,LastSeen) VALUES ({},'{}','{}',{},{},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{})".format(datafinal2[i]["ID"],str(uuid.uuid4()),datafinal2[i]["Label"],datafinal2[i]["Lat"],datafinal2[i]["Lon"], datafinal2[i]["PM2_5Value"],datafinal2[i]["p_0_3_um"],datafinal2[i]["p_0_5_um"],datafinal2[i]["p_1_0_um"],datafinal2[i]["p_2_5_um"],datafinal2[i]["p_5_0_um"],datafinal2[i]["p_10_0_um"],datafinal2[i]["pm1_0_cf_1"],datafinal2[i]["pm2_5_cf_1"],datafinal2[i]["pm10_0_cf_1"],datafinal2[i]["pm1_0_atm"],datafinal2[i]["pm2_5_atm"],datafinal2[i]["pm10_0_atm"],datafinal2[i]["LastSeen"]))
             #Encerrando conecção
             conn.close()
+            
 
         signal.alarm(600) # TEMPO EM SEGUNDOS
 
