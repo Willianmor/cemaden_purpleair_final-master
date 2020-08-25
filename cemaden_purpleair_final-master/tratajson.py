@@ -10,18 +10,11 @@ from sqlalchemy import create_engine,insert
 import signal
 import time
 import datetime
+import threading
 
 #import scripts auxiliares
 from log import log
 from log import logerro
-
-#windows
-'''
-from threading import Thread
-from time import sleep
-import temporizador
-from temporizador import IntervalRunner'''
-
 
 
 #Função para tratar json
@@ -49,8 +42,6 @@ def trataJson(*args):
         
         print ("_____________")
         print ("_____________")
-
-        log()
 
         for i in range (0,len(datafinal),2):
             #database: purpleair
@@ -87,10 +78,12 @@ def trataJson(*args):
             
 
         signal.alarm(600) # TEMPO EM SEGUNDOS
+        log()
 
     except Exception as e:
         print(e)
         logerro()
+        signal.alarm(600)
         
   
 #Chamando a função de temporizador
@@ -100,5 +93,6 @@ signal.alarm(1) #1 Segundo
 
 
 #Reposta da função
-resposta = input('Começou...\n')
+threading.Event().wait()
+
 
